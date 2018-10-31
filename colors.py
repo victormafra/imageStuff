@@ -1,36 +1,36 @@
 from PIL import Image
 from PIL import ImageGrab
 
-#List all colors (rgb format) on imageName
-def listColors(imageName):
-    image = Image.open(imageName)
+#List all colors (rgb format) on image_name
+def listColors(image_name):
+    image = Image.open(image_name)
     image = image.convert('RGB')
     pixel = image.load()
 
-    xMax, yMax = image.size
+    x_max, y_max = image.size
 
-    imageColors = []
+    image_colors = []
 
-    for i in range(0, xMax):
-        for j in range(0, yMax):
-            if(pixel[i, j] not in imageColors):
-                imageColors.append(pixel[i, j])
+    for i in range(0, x_max):
+        for j in range(0, y_max):
+            if(pixel[i, j] not in image_colors):
+                image_colors.append(pixel[i, j])
 
-    return imageColors
+    return image_colors
 
-#Turn every colorA in imageName to colorB, and every color that isn't colorA will become colorC
-def changeColor(imageName, colorA, colorB, colorC):
-    image = Image.open(imageName)
+#Turn every color_a in image_name to color_b, and every color that isn't color_a will become color_c
+def changeColor(image_name, color_a, color_b, color_c):
+    image = Image.open(image_name)
     image = image.convert('RGB')
     pixel = image.load()
 
-    xMax, yMax = image.size
+    x_max, y_max = image.size
 
-    for i in range(0, xMax):
-        for j in range(0, yMax):
-            if(pixel[i, j] == colorA):
-                pixel[i, j] = colorB
+    for i in range(0, x_max):
+        for j in range(0, y_max):
+            if(pixel[i, j] == color_a):
+                pixel[i, j] = color_b
             else:
-                pixel[i, j] = colorC
+                pixel[i, j] = color_c
 
-    image.save(str(colorA) + '_' + imageName)
+    image.save(str(color_a) + '_' + image_name)
