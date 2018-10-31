@@ -1,4 +1,4 @@
-# imageStuff
+# python_image_stuff
 Basic image processing with Python
 
 ## colors.py ##
